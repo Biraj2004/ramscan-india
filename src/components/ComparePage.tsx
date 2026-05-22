@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import type { Product } from '../types/ram';
 import { formatPrice } from '../utils/formatPrice';
 import { vendorMeta } from '../utils/vendors';
+import ProductImage from './ProductImage';
 
 interface ComparePageProps {
   items: Product[];
@@ -59,7 +60,7 @@ const ComparePage = ({ items, onRemove, onClear }: ComparePageProps) => {
             key={item.id} 
             className={`compare-item-mini ${item.id === bestValueItem?.id ? 'is-winner' : ''}`}
           >
-            <img src={item.imageUrl} alt={item.name} />
+            <ProductImage product={item} />
             <div className="card-meta">
               <span className={`ddr-badge ddr-${(item.ddrVersion || '4').toLowerCase().replace('ddr', '')}`}>
                 {item.ddrVersion || 'NVMe'}

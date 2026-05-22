@@ -2,6 +2,7 @@ import { HardDrive, MemoryStick, ShoppingCart, Zap } from 'lucide-react';
 import type { Product } from '../types/ram';
 import PriceTag from './PriceTag';
 import VendorBadge from './VendorBadge';
+import ProductImage from './ProductImage';
 
 interface ProductCardProps {
   product: Product;
@@ -14,7 +15,7 @@ const ProductCard = ({ product, inCompare, canAdd, onAddCompare }: ProductCardPr
   return (
     <article className={`product-card ${inCompare ? 'in-compare' : ''}`}>
       <div className="card-top">
-        <img src={product.imageUrl} alt={product.name} loading="lazy" />
+        <ProductImage product={product} />
       </div>
 
       <div className="card-meta">
